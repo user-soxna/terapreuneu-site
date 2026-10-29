@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Terrapreneur – Location de véhicules, saison touristique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0F3D2A; --green2:#16553A; --gold:#C9A227; --sea:#1AA6B7;
+  --bg:#FBF6EA; --surface:#FFFFFF; --text:#17261E; --muted:#51625A; --line:#E3DAC3;
+  --on-green:#F5EEDC;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0B1A13;--surface:#12271C;--text:#EFE9D6;--muted:#A8B7AE;--line:#24402F;--green:#0A2A1C;--green2:#123D2A;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0B1A13;--surface:#12271C;--text:#EFE9D6;--muted:#A8B7AE;--line:#24402F;--green:#0A2A1C;--green2:#123D2A;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Archivo',system-ui,Arial,sans-serif;line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--green);color:var(--on-green)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px}
+.brand{font-weight:900;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand small{display:block;font-weight:400;font-size:11px;opacity:.8;letter-spacing:.06em}
+.mark{width:34px;height:34px;border-radius:50%;background:var(--on-green);display:grid;place-items:center}
+nav{display:flex;gap:22px;font-size:15px}
+nav a{text-decoration:none;opacity:.9}nav a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px}
+.btn{display:inline-block;background:var(--gold);color:#1B1604;font-weight:800;padding:13px 24px;border-radius:999px;text-decoration:none;border:0;font:inherit;font-weight:800;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
+/* hero */
+.hero{position:relative;overflow:hidden;color:#0F3D2A;background:linear-gradient(#BFE6F5 0%,#E9F6F6 52%,#FBF6EA 52.1%)}
+.hero .wrap{padding-top:64px;padding-bottom:150px;position:relative;z-index:2}
+.hero h1{margin:0;line-height:.95;font-weight:400;font-size:clamp(34px,6vw,62px);letter-spacing:.01em}
+.hero h1 b{display:block;font-weight:900;font-size:clamp(54px,12.5vw,128px);letter-spacing:-.02em;color:#0F3D2A}
+.script{font-family:'Great Vibes','Brush Script MT',cursive;font-size:clamp(40px,8vw,84px);line-height:1.1;margin:6px 0 0;color:#0F3D2A;position:relative;display:inline-block}
+.script::after{content:"";position:absolute;left:4%;right:0;bottom:2px;height:4px;background:var(--gold);border-radius:4px;transform:rotate(-1.2deg)}
+.tag{margin:26px 0 30px;display:flex;gap:18px;flex-wrap:wrap;font-size:18px;letter-spacing:.14em}
+.tag span+span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:18px;vertical-align:middle}
+.sea{position:absolute;left:0;right:0;bottom:0;height:170px;z-index:1}
+.sea i{position:absolute;left:-5%;right:-5%;display:block;border-radius:50% 50% 0 0/100% 100% 0 0}
+.sea i:nth-child(1){bottom:0;height:70px;background:#FBF6EA}
+.sea i:nth-child(2){bottom:40px;height:60px;background:#F0DDAE;opacity:.9}
+.sea i:nth-child(3){bottom:76px;height:70px;background:#1AA6B7;opacity:.85}
+.sun{position:absolute;right:7%;top:48px;width:110px;height:110px;border-radius:50%;background:radial-gradient(#FFF1B8,#F6D365 60%,transparent 62%);opacity:.9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero{background:linear-gradient(#143B4A 0%,#1E5560 52%,#0B1A13 52.1%)}:root:not([data-theme="light"]) .hero,:root:not([data-theme="light"]) .hero h1 b,:root:not([data-theme="light"]) .script{color:#F5EEDC}:root:not([data-theme="light"]) .sea i:nth-child(1){background:#0B1A13}:root:not([data-theme="light"]) .sea i:nth-child(2){background:#3A4B2E}}
+/* sections */
+section{padding:76px 0}
+h2{font-size:clamp(30px,4.5vw,46px);line-height:1.05;margin:0 0 14px;font-weight:900;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 38px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.feat{padding:6px 0 6px 20px;border-left:4px solid var(--gold)}
+.feat h3{margin:0 0 6px;font-size:20px}
+.feat p{margin:0;color:var(--muted)}
+.fleet{background:var(--green);color:var(--on-green)}
+.fleet .lead{color:#C9D8CE}
+.cars{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.car{background:var(--green2);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.car svg{width:100%;height:auto;color:var(--on-green)}
+.car h3{margin:0;font-size:26px}
+.car ul{margin:0;padding-left:20px;color:#D5E2D9}
+.car .btn{align-self:flex-start;margin-top:6px}
+.steps{counter-reset:s;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--on-green);font-weight:800;margin-bottom:10px}
+.steps b{display:block;font-size:18px;margin-bottom:4px}
+.steps span{color:var(--muted)}
+.contact{background:var(--surface);border-top:1px solid var(--line)}
+.cwrap{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.big{font-size:clamp(30px,5vw,46px);font-weight:900;text-decoration:none;display:block;line-height:1.1}
+form{display:grid;gap:14px}
+label{font-weight:600;font-size:15px;display:grid;gap:6px}
+input,select,textarea{font:inherit;color:var(--text);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+textarea{min-height:90px;resize:vertical}
+.row{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media (max-width:640px){nav{display:none}.row{grid-template-columns:1fr}.sun{width:70px;height:70px}}
+footer{background:var(--green);color:var(--on-green);padding:28px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:#25D366;color:#06301A;font-weight:800;border-radius:999px;padding:13px 20px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.mark{width:44px;height:44px;background:#fff url(image/logo.jpg) center/cover no-repeat}
+.mark svg{display:none}
+.car svg{display:none}
+.car::before{content:"";display:block;aspect-ratio:4/3;border-radius:14px;background-color:#fff;background-position:center;background-size:cover}
+.cars .car:nth-child(1)::before{background-image:url(image/photo1.jpg)}
+.cars .car:nth-child(2)::before{background-image:url(image/photo3.jpg)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#accueil" aria-label="Terrapreneur, accueil">
+      <span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F3D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11"/><path d="M12 11c-4 0-6-3-6-6 4 0 6 2 6 6Z"/><path d="M12 13c4 0 6-3 6-6-4 0-6 2-6 6Z"/><path d="M3 21h18"/></svg></span>
+      <span>TERRAPRENEUR<small>Apprendre &amp; entreprendre</small></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#atouts">Nos atouts</a><a href="#vehicules">Véhicules</a><a href="#reserver">Comment réserver</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="tel:+221711858282">71 185 82 82</a>
+  </div>
+</header>
+
+<main id="accueil">
+  <div class="hero">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap">
+      <h1>Location de <b>véhicules</b></h1>
+      <p class="script">Saison touristique</p>
+      <p class="tag"><span>Explorez</span><span>Découvrez</span><span>Profitez</span></p>
+      <a class="btn" href="#contact">Demander un devis</a>
+      <a class="btn ghost" href="#vehicules" style="margin-left:8px">Voir les véhicules</a>
+    </div>
+    <div class="sea" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+
+  <section id="atouts">
+    <div class="wrap">
+      <h2>Voyagez l’esprit tranquille</h2>
+      <p class="lead">Que vous veniez pour quelques jours ou pour toute la saison, nous mettons à votre disposition des véhicules prêts à rouler et une équipe joignable à tout moment.</p>
+      <div class="grid">
+        <div class="feat"><h3>Véhicules bien entretenus</h3><p>Chaque véhicule est vérifié avant votre départ.</p></div>
+        <div class="feat"><h3>Confort assuré</h3><p>Des SUV spacieux et climatisés pour les longs trajets comme pour les balades.</p></div>
+        <div class="feat"><h3>Parcours sur mesure</h3><p>Dites-nous où vous allez, nous adaptons la location à votre itinéraire.</p></div>
+        <div class="feat"><h3>Assistance 24h/24</h3><p>Un appel suffit en cas de question ou d’imprévu sur la route.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vehicules" class="fleet">
+    <div class="wrap">
+      <h2>Notre flotte</h2>
+      <p class="lead">Des SUV compact, à l’aise sur les routes côtières comme sur les pistes.</p>
+      <div class="cars">
+        <article class="car">
+          <svg viewBox="0 0 320 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Silhouette de SUV"><path d="M20 84h-6V68l18-6 34-30c4-4 8-5 14-5h86c8 0 14 3 20 9l30 24 44 8c10 2 16 8 16 16v16h-14"/><path d="M78 36l-24 26h96V36zM160 36v26h60l-28-26z"/><path d="M60 84h172"/><circle cx="82" cy="88" r="20"/><circle cx="82" cy="88" r="7"/><circle cx="252" cy="88" r="20"/><circle cx="252" cy="88" r="7"/></svg>
+          <h3>SUV familial</h3>
+          <ul><li>SUV familial, spacieux et confortable</li><li>Idéal pour les groupes et les longs trajets</li></ul>
+          <a class="btn" href="#contact">Réserver ce véhicule</a>
+        </article>
+        <article class="car">
+          <svg viewBox="0 0 320 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Silhouette de SUV compact"><path d="M24 84h-8V70l16-4 34-28c4-4 8-5 13-5h84c8 0 14 3 19 8l28 24 40 8c10 2 16 8 16 16v15h-14"/><path d="M78 40l-22 26h92V40zM158 40v26h56l-26-26z"/><path d="M60 84h172"/><circle cx="82" cy="88" r="20"/><circle cx="82" cy="88" r="7"/><circle cx="252" cy="88" r="20"/><circle cx="252" cy="88" r="7"/></svg>
+          <h3>SUV confortables</h3>
+          <ul><li>SUV compact, agile et économique</li><li>Parfait pour les couples et les déplacements en ville</li></ul>
+          <a class="btn" href="#contact">Réserver ce véhicule</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reserver">
+    <div class="wrap">
+      <h2>Réserver en trois étapes</h2>
+      <p class="lead">Pas de formalités compliquées.</p>
+      <ol class="steps">
+        <li><b>Contactez-nous</b><span>Par téléphone, WhatsApp ou e-mail, avec vos dates et votre destination.</span></li>
+        <li><b>Recevez votre devis</b><span>Nous vous proposons le véhicule et le parcours adaptés à votre séjour.</span></li>
+        <li><b>Prenez la route</b><span>Récupérez votre véhicule et profitez de la saison.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap cwrap">
+      <div>
+        <h2>Parlons de votre séjour</h2>
+        <p class="lead">Commercial Terrapreneur, disponible 24h/24.</p>
+        <a class="big" href="tel:+221711858282">71 185 82 82</a>
+        <p><a href="mailto:terra.preneurs@gmail.com" style="font-weight:600">terra.preneurs@gmail.com</a></p>
+        <a class="btn" href="https://wa.me/221711858282" rel="noopener">Écrire sur WhatsApp</a>
+      </div>
+      <form id="f" aria-label="Demande de devis">
+        <label>Nom<input name="nom" required autocomplete="name"></label>
+        <div class="row">
+          <label>Du<input type="date" name="du"></label>
+          <label>Au<input type="date" name="au"></label>
+        </div>
+        <label>Véhicule
+          <select name="veh"><option>Mitsubishi Outlander</option><option>Mitsubishi ASX</option><option>Je ne sais pas encore</option></select>
+        </label>
+        <label>Parcours souhaité<textarea name="msg" placeholder="Ex. : Mbour, Saly, Joal-Fadiouth…"></textarea></label>
+        <button class="btn" type="submit">Envoyer ma demande</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Terrapreneur – Apprendre &amp; entreprendre</span><span>Location de véhicules, saison touristique</span></div>
+</footer>
+<a class="wa" href="https://wa.me/221711858282" rel="noopener" aria-label="Écrire sur WhatsApp">WhatsApp</a>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var d=new FormData(this);
+  var body='Nom : '+d.get('nom')+'\nDu : '+d.get('du')+'\nAu : '+d.get('au')+'\nVéhicule : '+d.get('veh')+'\nParcours : '+d.get('msg');
+  location.href='mailto:terra.preneurs@gmail.com?subject='+encodeURIComponent('Demande de devis – location de véhicule')+'&body='+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
